@@ -1,0 +1,662 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & BODY
+   ========================================================================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+    padding-top: 0;
+}
+
+/* ==========================================================================
+   2. HEADER / NAVIGATION (Fixed Floating & Mobile Menu Layout)
+   ========================================================================== */
+.navbar-floating {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1050; /* 💡 បង្កើន z-index ដើម្បីកុំឱ្យប្រអប់ផ្សេងៗបាំងពេលទម្លាក់ម៉ឺនុយ */
+}
+
+.navbar-floating .container {
+    max-width: 90%;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    color: #444 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #8bc34a !important; /* Matches our brand green */
+}
+
+#currencyBtn {
+    border-color: #ddd;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+#currencyBtn:hover {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* 💡 បន្ថែមស្ទីលសម្រាប់ម៉ឺនុយទូរស័ព្ទ (Mobile Menu Dropdown) */
+@media (max-width: 991.98px) {
+    .navbar-floating .navbar-collapse {
+        background-color: #ffffff; /* ធ្វើឱ្យប្រអប់ទម្លាក់មកមានពណ៌ស */
+        margin-top: 15px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .navbar-floating .container {
+        border-radius: 25px !important; /* រក្សារាង Pill លើ Mobile */
+    }
+}
+
+/* ==========================================================================
+   3. HERO SECTION (Adjusted Padding to avoid overlap)
+   ========================================================================== */
+.hero-section {
+    padding: 160px 0 80px 0; /* 💡 បង្កើន padding-top ដើម្បីរុញអក្សរចុះមកក្រោម កុំឱ្យ Nav បាំង */
+    background: radial-gradient(circle at top right, #8bc34a 20%, transparent 40%);
+}
+
+@media (max-width: 767.98px) {
+    .hero-section {
+        padding: 130px 0 60px 0; /* កែសម្រួល padding ឱ្យសមស្របនឹងអេក្រង់ទូរស័ព្ទ */
+        text-center: center; /* ធ្វើឱ្យអក្សរនៅចំកណ្តាលលើទូរស័ព្ទ */
+    }
+}
+
+/* ==========================================================================
+   4. PRODUCT CARDS & POPULAR ITEMS (Fixed Image Overlap & Sizes)
+   ========================================================================== */
+.border-green-main {
+    border: 15px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.food-card {
+    border-radius: 20px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.img-container img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 5px solid #8bc34a;
+}
+
+/* 💡 បន្ថែមការរៀបចំទម្រង់ប៊ូតុង និងកាតទំនិញនៅលើទូរស័ព្ទដៃ */
+@media (max-width: 575.98px) {
+    .food-card {
+        padding: 15px !important; /* បន្ថយគម្លាតក្នុងប្រអប់បន្តិចពេលអេក្រង់តូច */
+    }
+    .img-container img {
+        width: 90px;  /* បន្ថយទំហំរូបភាពលើទូរស័ព្ទកុំឱ្យធំពេក */
+        height: 90px;
+    }
+    .food-card h5 {
+        font-size: 0.95rem; /* បង្រួមអក្សរចំណងជើងទំនិញ */
+    }
+}
+
+.btn-success {
+    background-color: #8bc34a;
+    border-color: #8bc34a;
+}
+
+.btn-success:hover {
+    background-color: #7cb342;
+    border-color: #7cb342;
+}
+
+/* ==========================================================================
+   5. RECIPE PAGE & PROMO BOXES
+   ========================================================================== */
+.promo-box {
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+}
+
+.main-promo { background-color: #f8f9fa; border: 1px solid #eee; }
+.sale-promo { background-color: #ffb300; }
+.green-promo { background-color: #7cb342; }
+.red-promo { background-color: #c62828; }
+
+.category-card {
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    background-color: #ffffff !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.w-fit { width: fit-content; }
+
+/* ==========================================================================
+   6. FOOTER STYLES (Standard Footer)
+   ========================================================================== */
+.footer-section {
+    background-color: #fcfcfd;
+}
+
+.footer-logo-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #8bc34a;
+    border-radius: 50%;
+    box-shadow: 4px 0 0 #b2ff59, -4px 0 0 #558b2f;
+    opacity: 0.8;
+}
+
+.newsletter-form {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+}
+
+.newsletter-form .form-control:focus {
+    box-shadow: none;
+}
+
+.footer-links a:hover {
+    color: #8bc34a !important;
+}
+
+.footer-bottom-bar {
+    height: 10px;
+    background-color: #8bc34a;
+    width: 100%;
+}
+
+/* ==========================================================================
+   7. RECIPE FOOTER & ABOUT PAGE STYLES
+   ========================================================================== */
+.recipe-footer {
+    background-color: #f9f9f9;
+}
+
+.footer-logo-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #8bc34a;
+    border-radius: 50%;
+    position: relative;
+}
+
+.footer-logo-dot::after {
+    content: '';
+    position: absolute;
+    width: 100px; /* 💡 Fix: បង្កើនទំហំ width ឱ្យត្រូវកុំឱ្យបាត់រូបភាព */
+    height: 10px;
+    background-color: transparent;
+}
+
+.newsletter-pill {
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-pill:focus-within {
+    border-color: #8bc34a !important;
+}
+
+.recipe-footer a:hover {
+    color: #8bc34a !important;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.category-card-v2 {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card-v2:hover {
+    transform: translateY(-10px);
+}
+
+.cat-circle {
+    width: 110px;
+    height: 110px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-top: -30px; 
+}
+
+.organic-banner {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Global Extra Small Text Utility */
+.x-small { 
+    font-size: 0.8rem !important; 
+    letter-spacing: 0.5px;
+}
+/*Blog*/
+/* ==========================================================================
+   BLOG PAGE EXCLUSIVE STYLES (blog.css)
+   ========================================================================== */
+
+/* ស្ទីលកាតព័ត៌មានប្លុក */
+.blog-card {
+    border-radius: 20px !important;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
+}
+
+/* ប្រអប់គ្រប់គ្រងរូបភាព និង Badge លើរូប */
+.blog-img-box {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.blog-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-img-box img {
+    transform: scale(1.06);
+}
+
+.blog-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #8bc34a;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-medium;
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(139, 195, 74, 0.3);
+}
+
+/* ព័ត៌មាន Meta (កាលបរិច្ឆេទ និងអ្នកសរសេរ) */
+.blog-meta {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.blog-meta i {
+    color: #8bc34a;
+}
+
+.blog-title a {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.blog-title a:hover, .hover-green:hover {
+    color: #8bc34a !important;
+}
+
+/* តុបតែង Sidebar */
+.sidebar-box {
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.border-green-title {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.border-green-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #8bc34a;
+    border-radius: 2px;
+}
+
+.search-pill {
+    border-radius: 30px;
+}
+
+/* តុបតែង Pagination (លេខប្តូរទំព័រ) */
+.page-list-link {
+    display: block;
+    padding: 10px 16px;
+    background-color: #f8f9fa;
+    color: #444;
+    text-decoration: none;
+    border-radius: 50%;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.page-item.active .page-list-link, .page-list-link:hover {
+    background-color: #8bc34a;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(139, 195, 74, 0.25);
+}
+
+/* Responsive Support */
+@media (max-width: 767.98px) {
+    .blog-img-box {
+        height: 180px;
+    }
+    .blog-title a {
+        font-size: 1rem;
+    }
+}
+/*Card*/
+.offcanvas {
+    max-width: 360px !important;
+}
+.offcanvas-body::-webkit-scrollbar {
+    width: 5px;
+}
+.offcanvas-body::-webkit-scrollbar-thumb {
+    background-color: #8bc34a;
+    border-radius: 10px;
+}
+/* ==========================================================================
+   FIX CART SIDEBAR OVERLAP & MENUS
+   ========================================================================== */
+
+/* 💡 ១. កំណត់ឱ្យផ្ទាំងកន្ត្រកទំនិញ (Cart Sidebar) ស្ថិតនៅលើគេបង្អស់ជានិច្ច មិនឱ្យអ្វីបាំងបាន */
+.offcanvas {
+    z-index: 1100 !important; /* ធំជាង z-index របស់ Navbar */
+    max-width: 360px !important;
+}
+
+/* 💡 ២. កំណត់ឱ្យផ្ទៃងងឹតនៅខាងក្រោយកន្ត្រក (Backdrop) ស្ថិតនៅពីលើ Navbar ដែរ */
+.offcanvas-backdrop {
+    z-index: 1090 !important;
+}
+
+/* 💡 ៣. រក្សាកម្រិត Navbar ឱ្យនៅក្រោម Cart ពេលបើកកន្ត្រកទំនិញ */
+.navbar-floating {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1050; /* តូចជាងកម្រិតរបស់ .offcanvas */
+}
+
+/* 💡 ៤. តុបតែងប្រអប់កន្ត្រកទំនិញបន្ថែមឱ្យមើលទៅស្រឡះស្អាត */
+#cartItemsList {
+    max-height: 60vh;
+}
+
+/* តុបតែងរបាររមូរ (Scrollbar) ក្នុងកន្ត្រកឱ្យមានរាងតូចស្អាតបែបធម្មជាតិ */
+#cartItemsList::-webkit-scrollbar {
+    width: 5px;
+}
+#cartItemsList::-webkit-scrollbar-thumb {
+    background-color: #8bc34a;
+    border-radius: 10px;
+}
+
+/* តុបតែងប្រអប់លោត Alert Toast ពេលទិញទំនិញ */
+.toast {
+    background-color: #8bc34a !important; /* ពណ៌បៃតងប្រេន Foodied */
+    box-shadow: 0 10px 25px rgba(139, 195, 74, 0.3) !important;
+    opacity: 0.95;
+}
+.toast-body {
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+}
+/* ==========================================================================
+   BLOG DETAIL EXTRA COMMENT STYLES
+   ========================================================================== */
+.blog-content p {
+    margin-bottom: 20px;
+    font-size: 0.98rem;
+}
+
+blockquote {
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+.comment-avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.comment-form-box input:focus, .comment-form-box textarea:focus {
+    border-color: #8bc34a !important;
+    box-shadow: 0 0 0 0.25rem rgba(139, 195, 74, 0.15) !important;
+}
+/* why we choose us*/
+/* ==========================================================================
+   ✨ PREMIUM STYLES FOR "WHY CHOOSE US?" SECTION
+   ========================================================================== */
+
+/* ផ្ទៃខាងក្រោយបែប Gradient ស្រាលស្រទន់ */
+.bg-gradient-light {
+    background: linear-gradient(180deg, #fdfdfd 0%, #f4f7f4 100%);
+}
+
+/* តុបតែងអក្សរចំណងជើងឱ្យមានទឹកដម */
+.section-title-accent {
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
+    font-weight: 700 !important;
+}
+
+/* ស្ទីលកាតបែបអាជីពលំដាប់ខ្ពស់ */
+.premium-feature-card {
+    border-radius: 24px !important;
+    background: #ffffff !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+/* ស្រមោលសាយភាយស្រាលបែបសកល (Smooth Shadow) */
+.shadow-smooth {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* ចលនាអណ្តែតរលូនពេល Hover លើកាត */
+.premium-feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(139, 195, 74, 0.12) !important;
+}
+
+/* ប្រអប់រង្វង់ព័ទ្ធជុំវិញ Icon */
+.feature-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+/* ពណ៌ផ្ទៃខាងក្រោយ និង Icon បៃតងបែបសរីរាង្គ */
+.bg-success-light {
+    background-color: rgba(139, 195, 74, 0.12) !important;
+    color: #8bc34a !important;
+}
+
+/* ចលនាបង្វិលថ្នមៗនៃ Icon ពេល Hover */
+.premium-feature-card:hover .feature-icon-wrapper {
+    background-color: #8bc34a !important;
+    color: #ffffff !important;
+    transform: scale(1.05);
+}
+
+/* តុបតែងចំណងជើងក្នុងកាត */
+.card-heading {
+    font-size: 1.25rem;
+    letter-spacing: -0.2px;
+}
+/*Ourproduct*/
+/* ជំនួយពណ៌ស្អាតបន្ថែមសម្រាប់ទំព័រ Our Product */
+.bg-success-subtle {
+    background-color: rgba(139, 195, 74, 0.12) !important;
+}
+
+.product-item-card {
+    transition: all 0.3s ease;
+}
+/* Animation all page */
+.animate__animated {
+    --animate-duration: 0.8s; /* កំណត់ល្បឿនរត់ ០.៨ វិនាទី (ល្មមសមសួន មិនលឿនមិនយឺត) */
+}
+
+/* បន្ថែមចលនា Product Cart */
+.food-card, .product-item-card .food-card, .premium-feature-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+/* ==========================================================================
+   🎨 FOODIED PREMIUM TABLE SELECTOR STYLES
+   ========================================================================== */
+.foodie-table-selector .table-icon-badge {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.foodie-table-selector .custom-select-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* រចនាប្រអប់ Select ទាំងមូលឡើងវិញ */
+.foodie-table-selector .custom-foodie-select {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 45px; /* ទុកចន្លោះសម្រាប់ Icon ខាងមុខ */
+    padding-right: 40px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px !important;
+    font-family: 'Poppins', 'Kantumruy Pro', sans-serif;
+    font-size: 0.92rem;
+    color: #4a5568;
+    font-medium: 500;
+    background-color: #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    appearance: none; /* លុបព្រួញចាស់ចោល */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23198754' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 12px ease;
+}
+
+/* បន្ថែម Icon លេចធ្លោនៅខាងក្នុងប្រអប់ Select */
+.foodie-table-selector .select-leading-icon {
+    position: absolute;
+    left: 16px;
+    z-index: 5;
+    pointer-events: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* 💥 Hover Effect: ពេលក្រឡែកមកមើល ឬដាក់ Mouse ពីលើ */
+.foodie-table-selector .custom-foodie-select:hover {
+    border-color: #A3E635; /* ពណ៌បៃតងខ្ចីបែប Foodie */
+    background-color: #f8fafc;
+}
+
+/* 💥 Focus Effect: ពេលចុចជ្រើសរើស */
+.foodie-table-selector .custom-foodie-select:focus {
+    border-color: #198754;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.15) !important;
+}
+
+/* រចនាផ្ទាំង Option ពេលទម្លាក់ចុះក្រោម */
+.foodie-table-selector .custom-foodie-select option {
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #2d3748;
+}
+
+/* សម្រាប់ទូរស័ព្ទដៃឱ្យមើលទៅរឹតតែហាប់ណែនស្អាត */
+@media (max-width: 576px) {
+    .foodie-table-selector .custom-foodie-select {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 0.88rem;
+        border-radius: 12px !important;
+    }
+    .foodie-table-selector .select-leading-icon {
+        font-size: 1rem;
+        left: 14px;
+    }
+}
+/*Select Box Cart*/
+/* រចនាបថលម្អិតសម្រាប់ Custom Select Box */
+    .custom-foodied-select {
+        height: 48px;
+        font-size: 0.95rem;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        background-color: #ffffff;
+        color: #212529 !important;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* ពេលភ្ញៀវចុចចំ (Focus) ឱ្យលោតពន្លឺរង្សីពណ៌បៃតងស្រទន់ */
+    .custom-foodied-select:focus {
+        border-color: #198754 !important;
+        box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.15) !important;
+        background-color: #ffffff;
+    }
+    
+    /* កែសម្រួលគម្លាត Padding ខាងឆ្វេងសម្រាប់ទុកចន្លោះឱ្យ Icon */
+    .py-2-5 {
+        padding-top: 0.65rem !important;
+        padding-bottom: 0.65rem !important;
+    }
+    .ps-5 {
+        padding-left: 2.85rem !important;
+    }
+    
+    /* បង្កើត Smooth Animation សម្រាប់ Wrapper */
+    .table-selection-wrapper {
+        animation: fadeInUp 0.5s ease;
+    }

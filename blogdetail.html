@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodied - Blog Detail</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 💡 ភ្ជាប់បណ្ណាល័យ Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- ហៅឯកសារ CSS មកប្រើប្រាស់ -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+    
+    <style>
+        /* ស្ទីលបន្ថែមផ្តាច់មុខសម្រាប់តែទំព័រលម្អិត */
+        .blog-detail-img {
+            max-height: 460px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07) !important;
+            transition: transform 0.4s ease;
+        }
+        .blog-detail-img:hover {
+            transform: scale(1.01);
+        }
+        .author-box {
+            background-color: #fbfbf4;
+            border-radius: 20px;
+            border: 1px solid rgba(25, 135, 84, 0.12);
+            transition: all 0.3s ease;
+        }
+        .author-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(25, 135, 84, 0.06) !important;
+        }
+        .comment-form-box {
+            background-color: #f8f9fa;
+            border-radius: 24px;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        .sidebar-box {
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        .sidebar-box:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+        }
+        .hover-green {
+            transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+        .hover-green:hover {
+            color: #198754 !important;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-floating mt-4">
+        <div class="container bg-white shadow-sm rounded-pill py-2 px-4">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-placeholder me-2">
+                    <img src="image/foodlogo1.jfif" alt="Logo" class="rounded-circle" width="40px" height="40px">
+                </div>
+                <span class="fw-bold text-dark">Foodied</span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-2 gap-lg-3 my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Home</a></li> <!-- 💡 Fix URL ទៅ index.html -->
+                    <li class="nav-item"><a class="nav-link fw-medium" href="ourproduct.html">Products</a></li> <!-- 💡 លុប class active ចេញពីទីនេះ -->
+                    <li class="nav-item"><a class="nav-link fw-medium" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="recipe.html">Recipes</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-medium" href="blog.html">Blog</a></li> <!-- 💡 រក្សា active លើ Blog ឱ្យត្រឹមត្រូវ -->
+                    <li class="nav-item"><a class="nav-link fw-medium" href="about.html">About Us</a></li>
+                </ul>
+                <div class="d-lg-none mt-2">
+                    <button class="btn btn-outline-secondary rounded-pill w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                        <i class="bi bi-cart3 me-2"></i>Cart (<span class="cart-count">0</span>) - $<span class="cart-total-nav">0.00</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="d-none d-lg-flex align-items-center gap-2">
+                <button class="btn btn-outline-secondary rounded-pill px-4 py-1" type="button" id="currencyBtn" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                    <i class="bi bi-cart3 me-2"></i>$<span class="cart-total-main">0.00</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Detail Content Section -->
+    <div class="container py-5" style="margin-top: 100px;">
+        <div class="row g-4">
+            
+            <!-- ផ្នែកខាងឆ្វេង៖ ខ្លឹមសារអត្ថបទលម្អិត (រត់អណ្ដែតឡើងពីក្រោមមកលើ) -->
+            <div class="col-lg-8 animate__animated animate__fadeInUp">
+                <article class="blog-post">
+                    <!-- ចំណងជើងធំ -->
+                    <h1 class="fw-bold display-6 mb-3 text-dark">The Secret to Making the Perfect Organic Chicken Burger</h1>
+                    
+                    <!-- Meta Info -->
+                    <div class="blog-meta mb-4 fs-6 text-muted">
+                        <span><i class="bi bi-calendar3 text-success me-1"></i> June 02, 2026</span>
+                        <span class="ms-3"><i class="bi bi-person text-success me-1"></i> By Admin</span>
+                        <span class="ms-3"><i class="bi bi-chat-left-text text-success me-1"></i> 2 Comments</span>
+                    </div>
+
+                    <!-- រូបភាពធំប្រចាំអត្ថបទ -->
+                    <img src="image/chicken-burger.jpg" class="blog-detail-img shadow-sm mb-4" alt="Organic Chicken Burger">
+
+                    <!-- ខ្លឹមសារអត្ថបទលម្អិត (Article Body) -->
+                    <div class="blog-content text-muted lh-lg mb-5" style="font-size: 1.02rem;">
+                        <p>ការធ្វើប៊ឺហ្គ័រមាន់សរីរាង្គ (Organic Chicken Burger) ឱ្យមានរសជាតិឆ្ងាញ់ពិសា និងរក្សាបាននូវសារធាតុចិញ្ចឹមខ្ពស់ គឺទាមទារនូវការជ្រើសរើសវត្ថុធាតុដើមយ៉ាងសម្រិតសម្រាំងបំផុត។ ជាដំបូង សាច់មាន់ត្រូវតែជាសាច់ទ្រូងមាន់ដែលចិញ្ចឹមតាមបែបធម្មជាតិ (Grass-fed chicken) ដែលគ្មានផ្ទុកសារធាតុគីមី ឬថ្នាំអង់ទីប៊ីយោទិចឡើយ។</p>
+                        
+                        <h4 class="fw-bold text-dark mt-4 mb-3">១. របៀបរៀបចំសាច់មាន់ឱ្យទន់មានជាតិទឹក (Juicy Patty)</h4>
+                        <p>អាថ៌កំបាំងដែលធ្វើឱ្យសាច់មាន់មិនស្ងួត គឺការលាយសាច់ទ្រូងមាន់ចិញ្ច្រាំជាមួយប្រេងអូលីវបន្តិច និងបន្ថែមខ្ទឹមសចិញ្ច្រាំ ម្រេចម៉ត់ និងអំបិលសមុទ្រធម្មជាតិ។ លោកអ្នកអាចបន្ថែមជីវ៉ាន់ស៊ុយបារាំង (Parsley) ដើម្បីបង្កើនក្លិនឱ្យកាន់តែឈ្ងុយឆ្ងាញ់ embassy។</p>
+                        
+                        <blockquote class="p-4 my-4 border-start border-success border-4 bg-light rounded-end shadow-sm">
+                            <p class="mb-0 italic fw-medium text-dark">"ការជ្រើសរើសបន្លែស្រស់ៗដែលដាំដុះនៅក្នុងស្រុក មិនត្រឹមតែជួយដល់សុខភាពរបស់អ្នកឡើយ ប៉ុន្តែថែមទាំងជួយគាំទ្រដល់កសិករក្នុងតំបន់ផងដែរ។"</p>
+                        </blockquote>
+
+                        <h4 class="fw-bold text-dark mt-4 mb-3">២. การជ្រើសរើសនំបុ័ង និងបន្លែមកបន្ទាប់បន្សំ</h4>
+                        <p>ដើម្បីឱ្យប៊ឺហ្គ័រនេះក្លាយជាអាហារសុខភាពពិតប្រាកដ យើងគួរប្រើប្រាស់នំបុ័ងគ្រាប់ធញ្ញជាតិ (Whole Wheat Bun) មកអាំងឱ្យស្រួយបន្តិច រួចដាក់បន្ទាប់ដោយស្លឹកសាឡាត់ស្រស់ ប៉េងប៉ោះសរីរាង្គ និងផ្លែបឺរ (Avocado) ជំនួសឱ្យការប្រើប្រាស់ទឹកម៉ាយ៉ូណេស (Mayonnaise) ដែលមានជាតិខ្លាញ់ខ្ពស់។</p>
+                    </div>
+                </article>
+
+                <!-- ប្រអប់ព័ត៌មានអ្នកសរសេរ (Author Box) - បន្ថែមចលនា Delay ថ្នមៗ -->
+                <div class="author-box p-4 d-flex align-items-center gap-4 mb-5 shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <img src="image/foodlogo1.jfif" class="rounded-circle border" width="70" height="70" style="object-fit: cover;">
+                    <div>
+                        <h5 class="fw-bold mb-1 text-success">Written by Yorn Sen</h5>
+                        <p class="small text-muted mb-0">ជាអ្នកជំនាញផ្នែកអាហាររូបត្ថម្ភ និងជាមេចុងភៅដែលស្រលាញ់ពេញចិត្តការចម្អិនអាហារបែបសរីរាង្គធម្មជាតិអស់រយៈពេលជាង ៥ ឆ្នាំ។</p>
+                    </div>
+                </div>
+
+                <!-- ផ្នែកបញ្ចេញមតិ (Comment Section) - បន្ថែមចលនា Delay -->
+                <div class="comments-area mb-5 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                    <h4 class="fw-bold mb-4"><i class="bi bi-chat-square-text-fill text-success me-2"></i>Comments (2)</h4>
+                    
+                    <!-- មតិទី ១ -->
+                    <div class="d-flex gap-3 mb-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="rounded-circle comment-avatar border" alt="User">
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <h6 class="fw-bold mb-0">Sokha Nika</h6>
+                                <span class="x-small text-muted">June 02, 2026</span>
+                            </div>
+                            <p class="text-muted small mb-0">ពិតជាមានប្រយោជន៍ខ្លាំងណាស់សម្លាញ់! ខ្ញុំនឹងសាកល្បងធ្វើប៊ឺហ្គ័រនេះសម្រាប់ក្រុមគ្រួសាររបស់ខ្ញុំនៅចុងសប្តាហ៍នេះ។</p>
+                        </div>
+                    </div>
+
+                    <!-- មតិទី ២ -->
+                    <div class="d-flex gap-3 mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" class="rounded-circle comment-avatar border" alt="User">
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <h6 class="fw-bold mb-0">Sochetra Oum</h6>
+                                <span class="x-small text-muted">June 01, 2026</span>
+                            </div>
+                            <p class="text-muted small mb-0">រូបមន្តនេះល្អខ្លាំងណាស់គ្រូ! សាច់មាន់អាំងទៅមិនស្ងួតដូចមុនទៀតទេ ឈ្ងុយឆ្ងាញ់ណាស់!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form សម្រាប់សរសេរ Comment ថ្មី - បន្ថែមចលនា Delay ចុងក្រោយ -->
+                <div class="comment-form-box p-4 p-md-5 mb-4 shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
+                    <h4 class="fw-bold mb-3 text-success">Leave a Reply</h4>
+                    <p class="text-muted small mb-4">Your email address will not be published. Required fields are marked *</p>
+                    <form action="#" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control rounded-pill px-4 py-2 fs-6 shadow-none" placeholder="Your Name *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control rounded-pill px-4 py-2 fs-6 shadow-none" placeholder="Your Email *" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control rounded-4 px-4 py-3 fs-6 shadow-none" rows="5" placeholder="Write your comment here... *" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-success rounded-pill px-4 py-2 fw-medium shadow-sm">Post Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- ផ្នែកខាងស្តាំ៖ Sidebar (រត់ចូលមកពីចំហៀងស្តាំយ៉ាងទាក់ទាញ) -->
+            <div class="col-lg-4 animate__animated animate__fadeInRight">
+                <!-- Search -->
+                <div class="sidebar-box p-4 mb-4 bg-white shadow-sm border">
+                    <h5 class="fw-bold mb-3 border-green-title">Search Blog</h5>
+                    <div class="input-group search-pill border p-1 rounded-pill bg-white">
+                        <input type="text" class="form-control border-0 shadow-none ps-3" placeholder="Search stories...">
+                        <button class="btn btn-success rounded-pill px-3"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="sidebar-box p-4 mb-4 bg-white shadow-sm border">
+                    <h5 class="fw-bold mb-3 border-green-title">Categories</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom">
+                            <a href="#" class="text-decoration-none text-dark small hover-green">Healthy Eating</a>
+                            <span class="badge bg-light text-muted rounded-pill">12</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom">
+                            <a href="#" class="text-decoration-none text-dark small hover-green">Organic Recipes</a>
+                            <span class="badge bg-light text-muted rounded-pill">8</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center mb-0">
+                            <a href="#" class="text-decoration-none text-dark small hover-green">Nutrition Tips</a>
+                            <span class="badge bg-light text-muted rounded-pill">5</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🛍️ Shopping Cart Offcanvas Sidebar -->
+    <div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="cartSidebarLabel"><i class="bi bi-basket3-fill text-success me-2"></i>My Cart</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <div id="cartItemsList" class="overflow-y-auto pe-2">
+                <p class="text-muted text-center py-5 empty-cart-msg">Your cart is empty!</p>
+            </div>
+            
+            <!-- 🎯 ផ្នែកជ្រើសរើសលេខតុ (Table Number Option) -->
+            <div class="customer-info-form border-top pt-3 mt-2 text-start">
+                <div class="mb-3 position-relative">
+                    <label for="customerTable" class="form-label small fw-bold text-dark d-flex align-items-center gap-1 mb-1">
+                        <span>🎯</span> សូមជ្រើសរើសលេខតុរបស់អ្នក <span class="text-danger small">*</span>
+                    </label>
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text bg-white border-end-0 text-muted rounded-start-3"><i class="bi bi-grid-3x3-gap-fill text-success"></i></span>
+                        <select id="customerTable" class="form-select border-start-0 rounded-end-3 ps-1 shadow-none" style="cursor: pointer;">
+                            <option value="" selected disabled>-- ចុចទីនេះដើម្បីរើសលេខតុ --</option>
+                            <option value="Table 1">🪑 Table 01</option>
+                            <option value="Table 2">🪑 Table 02</option>
+                            <option value="Table 3">🪑 Table 03</option>
+                            <option value="Table 4">🪑 Table 04</option>
+                            <option value="Table 5">🪑 Table 05</option>
+                            <option value="Table 6">🪑 Table 06</option>
+                            <option value="Table 7">🪑 Table 07</option>
+                            <option value="Table 8">🪑 Table 08</option>
+                            <option value="Table 9">🪑 Table 09</option>
+                            <option value="Table 10">🪑 Table 10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top pt-3 mt-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fw-semibold fs-5 text-dark">Total:</span>
+                    <span class="fw-bold fs-4 text-success">$<span id="cartTotalValue">0.00</span></span>
+                </div>
+                <button id="checkoutBtn" class="btn btn-success btn-lg rounded-pill w-100 py-2 fw-medium shadow-sm mb-2">Proceed To Checkout</button>
+                <button class="btn btn-outline-danger btn-sm rounded-pill w-100 py-1" id="clearCartBtn">Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="recipe-footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="footer-logo-dot me-2"></div>
+                        <h4 class="fw-bold mb-0">Foodied</h4>
+                    </div>
+                    <p class="text-muted small mb-4">Get the latest healthy recipes and organic deals delivered to your inbox weekly.</p>
+                    <div class="newsletter-pill d-flex p-1 border rounded-pill bg-white">
+                        <input type="email" class="form-control border-0 shadow-none ps-3" placeholder="Your email...">
+                        <button class="btn btn-success rounded-pill px-4">Join</button>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h6 class="fw-bold mb-3">Shop Categories</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Fresh Fruits</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Organic Vegetables</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 offset-lg-2">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <div class="d-flex align-items-center gap-2 mb-2 text-muted small">
+                        <i class="bi bi-geo-alt text-success"></i>
+                        <span>123 Food Street, Phnom Penh</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 opacity-10">
+            <div class="footer-bottom-links d-flex flex-wrap justify-content-center gap-4 mb-4 text-muted x-small">
+                <span>Features</span><span>News & Blogs</span><span>About Us</span><span>Terms</span><span>Privacy</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cart.js?v=1.1"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

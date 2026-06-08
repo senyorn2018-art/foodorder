@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodied - Recipes & Promos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <!-- 💡 ភ្ជាប់បណ្ណាល័យ Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-floating mt-4">
+        <div class="container bg-white shadow-sm rounded-pill py-2 px-4">
+            <a class="navbar-brand d-flex align-items-center" href="index.php">
+                <div class="logo-placeholder me-2">
+                    <img src="image/foodlogo1.jfif" alt="Logo" class="rounded-circle" width="40px" height="40px">
+                </div>
+                <span class="fw-bold text-dark">Foodied</span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-2 gap-lg-3 my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-medium" href="ourproduct.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-medium" href="recipe.html">Recipes</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="about.html">About Us</a></li>
+                </ul>
+            </div>
+
+           <div class="d-lg-none mt-2">
+            <button class="btn btn-outline-secondary rounded-pill w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                <i class="bi bi-cart3 me-2"></i>Cart (<span class="cart-count">0</span>) - $<span class="cart-total-nav">0.00</span>
+            </button>
+            </div>
+            <div class="d-none d-lg-flex align-items-center gap-2">
+             <button class="btn btn-outline-secondary rounded-pill px-4 py-1" type="button" id="currencyBtn" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                <i class="bi bi-cart3 me-2"></i>$<span class="cart-total-main">0.00</span>
+            </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section bg-light text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold text-uppercase">Organic <span class="text-success">Recipes</span></h1>
+            <p class="text-muted">Explore our special promo deals and organic dynamic dishes.</p>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="promo-box main-promo p-5 d-flex flex-column justify-content-center h-100">
+                    <p class="text-success fw-medium mb-1">Colorful Fresh Fruits Vegetables</p>
+                    <h2 class="fw-bold display-6">ONE MUST EAT TO LIVE <br> NOT LIVE TO EAT 40% OFF</h2>
+                    <button class="btn btn-success rounded-pill mt-3 w-fit px-4">Shop Now</button>
+                    <div class="mt-4 text-center"><img src="image/salads.jpg" class="img-fluid rounded-4" style="max-height: 180px; object-fit: cover;" alt="Fresh Produce"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="promo-box sale-promo p-4 text-center text-white h-100 d-flex flex-column justify-content-between" style="background-color: #ffb300; border-radius: 20px;">
+                    <div>
+                        <h2 class="display-4 fw-bold">-20%</h2>
+                        <h3 class="fw-light fs-4">Mega Sale</h3>
+                    </div>
+                    <div class="my-3"><img src="image/chicken-burger.jpg" class="img-fluid rounded-circle" style="width: 130px; height: 130px; object-fit: cover;" alt="Mega Sale"></div>
+                    <button class="btn btn-danger rounded-pill w-100 py-2">Start at $9.00</button>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex flex-column gap-3">
+                <div class="promo-box green-promo p-4 text-white flex-grow-1 d-flex flex-column justify-content-between" style="background-color: #7cb342; border-radius: 20px;">
+                    <div>
+                        <p class="small mb-1 opacity-75">Organic New</p>
+                        <h5 class="fw-bold">ORGANIC <br> FRUIT BOXED</h5>
+                    </div>
+                    <a href="#" class="btn btn-light btn-sm rounded-pill w-fit px-3 mt-3">Shop now</a>
+                </div>
+                <div class="promo-box red-promo p-4 text-white flex-grow-1 d-flex flex-column justify-content-between" style="background-color: #c62828; border-radius: 20px;">
+                    <div>
+                        <p class="small mb-1 opacity-75">Organic New</p>
+                        <h5 class="fw-bold">ALWAYS <br> FRESH MEATS</h5>
+                    </div>
+                    <a href="#" class="btn btn-light btn-sm rounded-pill w-fit px-3 mt-3">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-top border-bottom py-4 my-4 bg-white">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="bi bi-send h3 text-success mb-0"></i>
+                    <div class="text-start">
+                        <p class="mb-0 fw-bold small">FREE SHIPPING</p>
+                        <p class="mb-0 x-small text-muted">On all orders over $75.00</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="bi bi-arrow-repeat h3 text-success mb-0"></i>
+                    <div class="text-start">
+                        <p class="mb-0 fw-bold small">EASY RETURNS</p>
+                        <p class="mb-0 x-small text-muted">30 days money back</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="bi bi-credit-card h3 text-success mb-0"></i>
+                    <div class="text-start">
+                        <p class="mb-0 fw-bold small">100% SECURE</p>
+                        <p class="mb-0 x-small text-muted">PayPal / Visa / Master</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="bi bi-headphones h3 text-success mb-0"></i>
+                    <div class="text-start">
+                        <p class="mb-0 fw-bold small">24/7 SUPPORT</p>
+                        <p class="mb-0 x-small text-muted">We are at your service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-4">
+        <div class="row g-4">
+            <div class="col-12 col-md-4">
+                <div class="category-card d-flex align-items-center p-4 bg-light rounded-4 shadow-sm border justify-content-between">
+                    <div>
+                        <p class="text-success small mb-1 fw-medium">Organic New</p>
+                        <h6 class="fw-bold text-dark mb-2">NEW ARRIVALS <br> ORGANIC</h6>
+                        <button class="btn btn-success btn-sm rounded-pill px-3 mt-2">Shop now</button>
+                    </div>
+                    <img src="image/matcha-dessert.jpg" class="rounded-circle border" width="90" height="90" style="object-fit: cover;" alt="Organic">
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="category-card d-flex align-items-center p-4 bg-light rounded-4 shadow-sm border justify-content-between">
+                    <div>
+                        <p class="text-success small mb-1 fw-medium">Fresh Cut</p>
+                        <h6 class="fw-bold text-dark mb-2">PREMIUM FRESH <br> MEATS & FISH</h6>
+                        <button class="btn btn-success btn-sm rounded-pill px-3 mt-2">Shop now</button>
+                    </div>
+                    <img src="image/fried-fish.jpg" class="rounded-circle border" width="90" height="90" style="object-fit: cover;" alt="Meat">
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="category-card d-flex align-items-center p-4 bg-light rounded-4 shadow-sm border justify-content-between">
+                    <div>
+                        <p class="text-success small mb-1 fw-medium">Healthy Hot</p>
+                        <h6 class="fw-bold text-dark mb-2">BAKERY & FRESH <br> ORGANIC BREADS</h6>
+                        <button class="btn btn-success btn-sm rounded-pill px-3 mt-2">Shop now</button>
+                    </div>
+                    <img src="image/veggie-sandwich.jpg" class="rounded-circle border" width="90" height="90" style="object-fit: cover;" alt="Bakery">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 🛍️ Shopping Cart Offcanvas Sidebar -->
+    <div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="cartSidebarLabel"><i class="bi bi-basket3-fill text-success me-2"></i>My Cart</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <div id="cartItemsList" class="overflow-y-auto pe-2">
+                <p class="text-muted text-center py-5 empty-cart-msg">Your cart is empty!</p>
+            </div>
+            
+            <!-- 🎯 ផ្នែកជ្រើសរើសលេខតុ (Table Number Option) -->
+            <div class="customer-info-form border-top pt-3 mt-2 text-start">
+                <div class="mb-3 position-relative">
+                    <label for="customerTable" class="form-label small fw-bold text-dark d-flex align-items-center gap-1 mb-1">
+                        <span>🎯</span> សូមជ្រើសរើសលេខតុរបស់អ្នក <span class="text-danger small">*</span>
+                    </label>
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text bg-white border-end-0 text-muted rounded-start-3"><i class="bi bi-grid-3x3-gap-fill text-success"></i></span>
+                        <select id="customerTable" class="form-select border-start-0 rounded-end-3 ps-1 shadow-none" style="cursor: pointer;">
+                            <option value="" selected disabled>-- ចុចទីនេះដើម្បីរើសលេខតុ --</option>
+                            <option value="Table 1">🪑 Table 01</option>
+                            <option value="Table 2">🪑 Table 02</option>
+                            <option value="Table 3">🪑 Table 03</option>
+                            <option value="Table 4">🪑 Table 04</option>
+                            <option value="Table 5">🪑 Table 05</option>
+                            <option value="Table 6">🪑 Table 06</option>
+                            <option value="Table 7">🪑 Table 07</option>
+                            <option value="Table 8">🪑 Table 08</option>
+                            <option value="Table 9">🪑 Table 09</option>
+                            <option value="Table 10">🪑 Table 10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top pt-3 mt-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fw-semibold fs-5 text-dark">Total:</span>
+                    <span class="fw-bold fs-4 text-success">$<span id="cartTotalValue">0.00</span></span>
+                </div>
+                <button id="checkoutBtn" class="btn btn-success btn-lg rounded-pill w-100 py-2 fw-medium shadow-sm mb-2">Proceed To Checkout</button>
+                <button class="btn btn-outline-danger btn-sm rounded-pill w-100 py-1" id="clearCartBtn">Clear All</button>
+            </div>
+        </div>
+    </div>
+    <footer class="recipe-footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="footer-logo-dot me-2"></div>
+                        <h4 class="fw-bold mb-0">Foodied</h4>
+                    </div>
+                    <p class="text-muted small mb-4">Get the latest healthy recipes and organic deals delivered to your inbox weekly.</p>
+                    <div class="newsletter-pill d-flex p-1 border rounded-pill bg-white">
+                        <input type="email" class="form-control border-0 shadow-none ps-3" placeholder="Your email...">
+                        <button class="btn btn-success rounded-pill px-4">Join</button>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h6 class="fw-bold mb-3">Shop Categories</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Fresh Fruits</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Organic Vegetables</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Fresh Meats</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Bakery & Bread</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-3">Recipe Hub</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Breakfast Ideas</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Vegan Meals</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Dinner Parties</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Quick Snacks</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <div class="d-flex align-items-center gap-2 mb-2 text-muted small">
+                        <i class="bi bi-geo-alt text-success"></i>
+                        <span>123 Food Street, Phnom Penh</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-muted small">
+                        <i class="bi bi-telephone text-success"></i>
+                        <span>+855 12 345 678</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-5 opacity-10">
+            <div class="footer-bottom-links d-flex flex-wrap justify-content-center gap-4 mb-4 text-muted x-small">
+                <span>Features</span><span>News & Blogs</span><span>About Us</span><span>Terms</span><span>Privacy</span><span>Cookies</span>
+            </div>
+        </div>
+        <div class="bg-success" style="height: 10px; width: 100%;"></div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="cart.js?v=1.1"></script>
+    <script src="script.js"></script>
+</body>
+</html>

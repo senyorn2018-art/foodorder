@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Order Now</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 💡 ភ្ជាប់បណ្ណាល័យ Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* 🎨 ស្ទីលបន្ថែមផ្តាច់មុខសម្រាប់ Custom Select Box តាមរូប edited-image.png */
+        .custom-foodied-select {
+            height: 48px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background-color: #ffffff;
+            color: #212529 !important;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .custom-foodied-select:focus {
+            border-color: #198754 !important;
+            box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.15) !important;
+            background-color: #ffffff;
+        }
+        .py-2-5 {
+            padding-top: 0.65rem !important;
+            padding-bottom: 0.65rem !important;
+        }
+        .ps-5 {
+            padding-left: 2.85rem !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-floating mt-4">
+        <div class="container bg-white shadow-sm rounded-pill py-2 px-4">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-placeholder me-2">
+                    <img src="image/foodlogo1.jfif" alt="Logo" class="rounded-circle" width="40px" height="40px">
+                </div>
+                <span class="fw-bold text-dark">Foodied</span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-2 gap-lg-3 my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link active fw-medium" href="index.html">Home</a></li> <!-- 💡 active តែនៅទំព័រ Home -->
+                    <li class="nav-item"><a class="nav-link fw-medium" href="ourproduct.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="recipe.html">Recipes</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="about.html">About Us</a></li>
+                </ul>
+                <div class="d-lg-none mt-2">
+                    <button class="btn btn-outline-secondary rounded-pill w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                        <i class="bi bi-cart3 me-2"></i>Cart (<span class="cart-count">0</span>) - $<span class="cart-total-nav">0.00</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="d-none d-lg-flex align-items-center gap-2">
+                <button class="btn btn-outline-secondary rounded-pill px-4 py-1" type="button" id="currencyBtn" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                    <i class="bi bi-cart3 me-2"></i>$<span class="cart-total-main">0.00</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ⚡ Hero Section - ចលនារត់ពីឆ្វេងទៅស្តាំ (animate__fadeInLeft) -->
+    <section class="hero-section bg-light overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 pt-5 pt-md-2 animate__animated animate__fadeInLeft"> 
+                    <span class="badge rounded-pill bg-light text-dark mb-3 px-3 py-2 shadow-sm animate__animated animate__zoomIn animate__delay-1s">Hungry?</span>
+                    <h1 class="display-3 fw-bold">JUST COME TO <br><span class="text-success">FOODIED & ORDER</span></h1>
+                    <p class="text-muted my-4">Here you will find all the best quality and pure food. Order now to satisfy your hunger pangs.</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-success btn-lg rounded-pill px-4 shadow-sm">Order Now</button>
+                        <button class="btn btn-outline-dark btn-lg rounded-pill px-4">Explore More &rarr;</button>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center position-relative mt-4 mt-md-0 animate__animated animate__fadeInRight">
+                    <img src="image/matcha-dessert.jpg" alt="Hero Food" class="img-fluid rounded-circle border-green-main shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Menu Section -->
+    <section class="container py-5">
+        <h3 class="fw-bold text-center mb-5">Our Menu</h3>
+        <div class="row g-3 g-md-4">
+            
+            <div class="col-6 col-md-3">
+                <div class="food-card text-center p-3 p-md-4 shadow-sm border-0 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="img-container mb-3">
+                            <img src="image/chicken-burger.jpg" class="rounded-circle border-green" alt="Organic Chicken Burger">
+                        </div>
+                        <h5 class="fw-bold food-title">Organic Chicken Burger</h5>
+                        <p class="small text-muted mb-0 d-none d-sm-block">Grass-fed chicken breast with fresh organic veggies.</p>
+                    </div>
+                    <div class="card-action-area mt-3">
+                        <span class="fw-bold text-success d-block mb-2">$3.50</span>
+                        <button class="btn btn-success btn-sm rounded-pill px-2 px-md-3 buy-btn w-100" data-name="Organic Chicken Burger" data-price="3.50">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="food-card text-center p-3 p-md-4 shadow-sm border-0 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="img-container mb-3">
+                            <img src="image/chicken-pizza.jpg" class="rounded-circle border-green" alt="Crispy Chicken Pizza">
+                        </div>
+                        <h5 class="fw-bold food-title">Crispy Chicken Pizza</h5>
+                        <p class="small text-muted mb-0 d-none d-sm-block">Thin crust topped with organic grilled chicken and cheese.</p>
+                    </div>
+                    <div class="card-action-area mt-3">
+                        <span class="fw-bold text-success d-block mb-2">$5.50</span>
+                        <button class="btn btn-success btn-sm rounded-pill px-2 px-md-3 buy-btn w-100" data-name="Crispy Chicken Pizza" data-price="5.50">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="food-card text-center p-3 p-md-4 shadow-sm border-0 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="img-container mb-3">
+                            <img src="image/chicken-rice.jpg" class="rounded-circle border-green" alt="Healthy Chicken Rice">
+                        </div>
+                        <h5 class="fw-bold food-title">Healthy Chicken Rice</h5>
+                        <p class="small text-muted mb-0 d-none d-sm-block">Steamed brown rice served with organic tender chicken.</p>
+                    </div>
+                    <div class="card-action-area mt-3">
+                        <span class="fw-bold text-success d-block mb-2">$4.50</span>
+                        <button class="btn btn-success btn-sm rounded-pill px-2 px-md-3 buy-btn w-100" data-name="Healthy Chicken Rice" data-price="4.50">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="food-card text-center p-3 p-md-4 shadow-sm border-0 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="img-container mb-3">
+                            <img src="image/matcha-dessert.jpg" class="rounded-circle border-green" alt="Special Matcha Dessert">
+                        </div>
+                        <h5 class="fw-bold food-title">Special Matcha Dessert</h5>
+                        <p class="small text-muted mb-0 d-none d-sm-block">Low-sugar organic green tea pudding with fresh berries.</p>
+                    </div>
+                    <div class="card-action-area mt-3">
+                        <span class="fw-bold text-success d-block mb-2">$2.50</span>
+                        <button class="btn btn-success btn-sm rounded-pill px-2 px-md-3 buy-btn w-100" data-name="Special Matcha Dessert" data-price="2.50">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="food-card text-center p-3 p-md-4 shadow-sm border-0 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="img-container mb-3">
+                            <img src="image/salads.jpg" class="rounded-circle border-green" alt="Fresh Organic Salad">
+                        </div>
+                        <h5 class="fw-bold food-title">Fresh Organic Salad</h5>
+                        <p class="small text-muted mb-0 d-none d-sm-block">A mix of crispy local greens, avocados, and olive oil.</p>
+                    </div>
+                    <div class="card-action-area mt-3">
+                        <span class="fw-bold text-success d-block mb-2">$2.50</span>
+                        <button class="btn btn-success btn-sm rounded-pill px-2 px-md-3 buy-btn w-100" data-name="Fresh Organic Salad" data-price="2.50">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="food-card text-center p-3 p-md-4 shadow-sm border-0 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="img-container mb-3">
+                            <img src="image/egg-masala.jpg" class="rounded-circle border-green" alt="Premium Egg Masala">
+                        </div>
+                        <h5 class="fw-bold food-title">Premium Egg Masala</h5>
+                        <p class="small text-muted mb-0 d-none d-sm-block">Organic boiled eggs cooked in rich and aromatic spices.</p>
+                    </div>
+                    <div class="card-action-area mt-3">
+                        <span class="fw-bold text-success d-block mb-2">$3.40</span>
+                        <button class="btn btn-success btn-sm rounded-pill px-2 px-md-3 buy-btn w-100" data-name="Premium Egg Masala" data-price="3.40">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="food-card text-center p-3 p-md-4 shadow-sm border-0 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="img-container mb-3">
+                            <img src="image/fried-fish.jpg" class="rounded-circle border-green" alt="Crispy Fried Fish">
+                        </div>
+                        <h5 class="fw-bold food-title">Crispy Fried Fish</h5>
+                        <p class="small text-muted">Freshly caught river fish fried with organic herbs.</p>
+                    </div>
+                    <div class="card-action-area mt-3">
+                        <span class="fw-bold text-success d-block mb-2">$4.00</span>
+                        <button class="btn btn-success btn-sm rounded-pill px-2 px-md-3 buy-btn w-100" data-name="Crispy Fried Fish" data-price="4.00">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="food-card text-center p-3 p-md-4 shadow-sm border-0 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="img-container mb-3">
+                            <img src="image/veggie-sandwich.jpg" class="rounded-circle border-green" alt="Veggie Club Sandwich">
+                        </div>
+                        <h5 class="fw-bold food-title">Veggie Club Sandwich</h5>
+                        <p class="small text-muted mb-0 d-none d-sm-block">Whole wheat bread toasted with sliced avocados.</p>
+                    </div>
+                    <div class="card-action-area mt-3">
+                        <span class="fw-bold text-success d-block mb-2">$3.00</span>
+                        <button class="btn btn-success btn-sm rounded-pill px-2 px-md-3 buy-btn w-100" data-name="Veggie Club Sandwich" data-price="3.00">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="ourproduct.html" class="btn btn-success rounded-pill px-4">See More</a>            
+            </div>
+        </div>
+    </section>
+      <!-- 🛍️ Shopping Cart Offcanvas Sidebar -->
+    <div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="cartSidebarLabel"><i class="bi bi-basket3-fill text-success me-2"></i>My Cart</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <div id="cartItemsList" class="overflow-y-auto pe-2">
+                <p class="text-muted text-center py-5 empty-cart-msg">Your cart is empty!</p>
+            </div>
+            
+            <!-- 🎯 ផ្នែកជ្រើសរើសលេខតុ (Table Number Option) -->
+            <div class="customer-info-form border-top pt-3 mt-2 text-start">
+                <div class="mb-3 position-relative">
+                    <label for="customerTable" class="form-label small fw-bold text-dark d-flex align-items-center gap-1 mb-1">
+                        <span>🎯</span> សូមជ្រើសរើសលេខតុរបស់អ្នក <span class="text-danger small">*</span>
+                    </label>
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text bg-white border-end-0 text-muted rounded-start-3"><i class="bi bi-grid-3x3-gap-fill text-success"></i></span>
+                        <select id="customerTable" class="form-select border-start-0 rounded-end-3 ps-1 shadow-none" style="cursor: pointer;">
+                            <option value="" selected disabled>-- ចុចទីនេះដើម្បីរើសលេខតុ --</option>
+                            <option value="Table 1">🪑 Table 01</option>
+                            <option value="Table 2">🪑 Table 02</option>
+                            <option value="Table 3">🪑 Table 03</option>
+                            <option value="Table 4">🪑 Table 04</option>
+                            <option value="Table 5">🪑 Table 05</option>
+                            <option value="Table 6">🪑 Table 06</option>
+                            <option value="Table 7">🪑 Table 07</option>
+                            <option value="Table 8">🪑 Table 08</option>
+                            <option value="Table 9">🪑 Table 09</option>
+                            <option value="Table 10">🪑 Table 10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top pt-3 mt-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fw-semibold fs-5 text-dark">Total:</span>
+                    <span class="fw-bold fs-4 text-success">$<span id="cartTotalValue">0.00</span></span>
+                </div>
+                <button id="checkoutBtn" class="btn btn-success btn-lg rounded-pill w-100 py-2 fw-medium shadow-sm mb-2">Proceed To Checkout</button>
+                <button class="btn btn-outline-danger btn-sm rounded-pill w-100 py-1" id="clearCartBtn">Clear All</button>
+            </div>
+        </div>
+    </div>
+    <!-- Why Choose Us Section -->
+    <section class="py-5 bg-gradient-light">
+        <div class="container text-center py-4">
+            <h2 class="fw-bold mb-2 text-dark section-title-accent">Why Choose Us?</h2>
+            <p class="text-muted small mx-auto mb-5" style="max-width: 600px;">You will choose us because you get the best quality food from us and we deliver fast.</p>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card premium-feature-card border-0 p-5 h-100 shadow-smooth">
+                        <div class="feature-icon-wrapper mb-4 text-success bg-success-light mx-auto">
+                            <i class="bi bi-heart-pulse-fill"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3 text-dark card-heading">Serve Healthy Food</h5>
+                        <p class="small text-muted mb-0 lh-base">We serve all healthy food here. You can choose any food you like.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card premium-feature-card border-0 p-5 h-100 shadow-smooth">
+                        <div class="feature-icon-wrapper mb-4 text-success bg-success-light mx-auto">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3 text-dark card-heading">Best Quality</h5>
+                        <p class="small text-muted mb-0 lh-base">We maintain pristine standards of freshness and taste.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card premium-feature-card border-0 p-5 h-100 shadow-smooth">
+                        <div class="feature-icon-wrapper mb-4 text-success bg-success-light mx-auto">
+                            <i class="bi bi-rocket-takeoff-fill"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3 text-dark card-heading">Fast Delivery</h5>
+                        <p class="small text-muted mb-0 lh-base">Get your organic food delivered warm straight to your doorstep.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💡 🎉 Fix ជំនាន់ថ្មី៖ ផ្ទាំងគ្រោងកូដប្រអប់ដាស់តឿន Notification Toast ពណ៌ខ្មៅ-បៃតង ម៉ូដ Premium (ដូចទំព័រផលិតផល) -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+        <div id="cartAlertToast" class="toast align-items-center text-white bg-dark border-0 rounded-4 shadow-lg animate__animated animate__fadeInUp" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex p-2">
+                <div class="toast-body d-flex align-items-center gap-2">
+                    <span class="fs-5">🎉</span>
+                    <div class="fw-medium">
+                        បានបន្ថែម <strong id="alertItemName" class="text-success"></strong> ទៅក្នុងកន្ត្រកទំនិញរបស់អ្នក!
+                    </div>
+                </div>
+                <button type="button" class="btn-close btn-close-white m-auto me-2 shadow-none" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="recipe-footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="footer-logo-dot me-2"></div>
+                        <h4 class="fw-bold mb-0">Foodied</h4>
+                    </div>
+                    <p class="text-muted small mb-4">Get the latest healthy recipes and organic deals delivered to your inbox weekly.</p>
+                    <div class="newsletter-pill d-flex p-1 border rounded-pill bg-white">
+                        <input type="email" class="form-control border-0 shadow-none ps-3" placeholder="Your email...">
+                        <button class="btn btn-success rounded-pill px-4">Join</button>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h6 class="fw-bold mb-3">Shop Categories</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Fresh Fruits</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Organic Vegetables</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 offset-lg-2">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <div class="d-flex align-items-center gap-2 text-muted small">
+                        <i class="bi bi-geo-alt text-success"></i>
+                        <span>123 Food Street, Phnom Penh</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 opacity-10">
+            <div class="footer-bottom-links d-flex flex-wrap justify-content-center gap-4 mb-4 text-muted x-small">
+                <span>Features</span><span>News & Blogs</span><span>About Us</span><span>Terms</span><span>Privacy</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

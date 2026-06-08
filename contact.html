@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 💡 ភ្ជាប់បណ្ណាល័យ Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- 🎨 បន្ថែម Style ជំនួយសម្រាប់កាតព័ត៌មានឱ្យកាន់តែស្អាតពេលមានចលនា -->
+    <style>
+        .info-card {
+            transition: all 0.3s ease;
+            border-radius: 16px;
+            background: #ffffff;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(25, 135, 84, 0.1) !important;
+        }
+        .contact-box {
+            border-radius: 24px;
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-floating mt-4">
+        <div class="container bg-white shadow-sm rounded-pill py-2 px-4">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="logo-placeholder me-2">
+                    <img src="image/foodlogo1.jfif" alt="Logo" class="rounded-circle" width="40px" height="40px">
+                </div>
+                <span class="fw-bold text-dark">Foodied</span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-2 gap-lg-3 my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="ourproduct.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="recipe.html">Recipes</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="about.html">About Us</a></li>
+                </ul>
+                <div class="d-lg-none mt-2">
+                    <button class="btn btn-outline-secondary rounded-pill w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                        <i class="bi bi-cart3 me-2"></i>Cart (<span class="cart-count">0</span>) - $<span class="cart-total-nav">0.00</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="d-none d-lg-flex align-items-center gap-2">
+                <button class="btn btn-outline-secondary rounded-pill px-4 py-1" type="button" id="currencyBtn" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                    <i class="bi bi-cart3 me-2"></i>$<span class="cart-total-main">0.00</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ⚡ Contact Banner Section - បន្ថែមចលនាអណ្ដែតចុះមកក្រោមថ្នមៗ -->
+    <section class="hero-section bg-light text-center overflow-hidden py-10 animate__animated animate__fadeInDown">
+        <div class="container py-3">
+            <h1 class="display-4 fw-bold text-uppercase mb-2">Get In <span class="text-success">Touch</span></h1>
+            <p class="text-muted animate__animated animate__fadeInUp animate__delay-1s">Find our contact information and reach out to us easily.</p>
+        </div>
+    </section>
+
+    <!-- Main Contact Content Section -->
+    <section class="container py-5">
+        <div class="row g-5">
+            
+            <!-- ផ្នែកខាងឆ្វេង៖ Live Map និងព័ត៌មានទំនាក់ទំនង (រត់ចេញពីឆ្វេងមកស្តាំ) -->
+            <div class="col-lg-6 d-flex flex-column justify-content-between animate__animated animate__fadeInLeft">
+                <div>
+                    <!-- Google Map Embed (Phnom Penh) -->
+                    <div class="map-container mb-4 shadow-sm">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m10!1m3!1d62553.07548545811!2d104.89178224376485!3d11.582845348882042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109513dc76a6be3%3A0x9c0e0e66a5bd6b33!2sPhnom%20Penh!5e0!3m2!1sen!2skh!4v1716380000000!5m2!1sen!2skh" 
+                            width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <!-- ប្រព័ន្ធកាតព័ត៌មាន (Info Cards Grid) - រត់អណ្ដែតឡើងដេញជួរគ្នាម្ដងមួយៗ -->
+                    <div class="row g-3">
+                        <!-- កាត Phone -->
+                        <div class="col-sm-6 animate__animated animate__fadeInUp animate__delay-1s">
+                            <div class="info-card p-3 shadow-sm d-flex align-items-center gap-3 border">
+                                <div class="fs-2 text-success"><i class="bi bi-telephone-fill"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Phone</h6>
+                                    <span class="small text-muted">+855 23 123 4567</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- កាត Email -->
+                        <div class="col-sm-6 animate__animated animate__fadeInUp animate__delay-1s" style="animation-delay: 1.2s;">
+                            <div class="info-card p-3 shadow-sm d-flex align-items-center gap-3 border">
+                                <div class="fs-2 text-success"><i class="bi bi-envelope-fill"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Email</h6>
+                                    <span class="small text-muted">support@foodied.kh</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- កាត Address -->
+                        <div class="col-sm-6 animate__animated animate__fadeInUp animate__delay-1s" style="animation-delay: 1.4s;">
+                            <div class="info-card p-3 shadow-sm d-flex align-items-center gap-3 border">
+                                <div class="fs-2 text-success"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Address</h6>
+                                    <span class="small text-muted">456 Food Street, Phnom Penh</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- កាត Open Hours -->
+                        <div class="col-sm-6 animate__animated animate__fadeInUp animate__delay-1s" style="animation-delay: 1.6s;">
+                            <div class="info-card p-3 shadow-sm d-flex align-items-center gap-3 border">
+                                <div class="fs-2 text-success"><i class="bi bi-clock-fill"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Open Hours</h6>
+                                    <span class="small text-muted">07:00 AM - 09:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ផ្នែកខាងស្តាំ៖ ប្រអប់ផ្ញើសារ (Contact Form) - រត់ចេញពីស្ដាំមកឆ្វេងយ៉ាងប្រណីត -->
+            <div class="col-lg-6 animate__animated animate__fadeInRight">
+                <div class="contact-box p-4 p-md-5 shadow-sm border">
+                    <h4 class="fw-bold mb-4 text-center text-md-start text-success">Send Us a Message</h4>
+                    <form action="#" method="POST">
+                        <div class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+                            <input type="text" class="form-control form-control-lg fs-6 rounded-3" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 1s;">
+                            <input type="email" class="form-control form-control-lg fs-6 rounded-3" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 1.2s;">
+                            <select class="form-select form-select-lg fs-6 text-muted rounded-3" required>
+                                <option value="" selected disabled>Select Subject</option>
+                                <option value="feedback">General Feedback</option>
+                                <option value="order">Order Inquiry</option>
+                                <option value="support">Technical Support</option>
+                            </select>
+                        </div>
+                        <div class="mb-4 animate__animated animate__fadeInUp" style="animation-delay: 1.4s;">
+                            <textarea class="form-control form-control-lg fs-6 rounded-3" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg rounded-pill w-100 py-2 fw-medium shadow-sm animate__animated animate__zoomIn" style="animation-delay: 1.6s;">Submit Message</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 🛍️ Shopping Cart Offcanvas Sidebar -->
+    <div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="cartSidebarLabel"><i class="bi bi-basket3-fill text-success me-2"></i>My Cart</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <div id="cartItemsList" class="overflow-y-auto pe-2">
+                <p class="text-muted text-center py-5 empty-cart-msg">Your cart is empty!</p>
+            </div>
+            
+            <!-- 🎯 ផ្នែកជ្រើសរើសលេខតុ (Table Number Option) -->
+            <div class="customer-info-form border-top pt-3 mt-2 text-start">
+                <div class="mb-3 position-relative">
+                    <label for="customerTable" class="form-label small fw-bold text-dark d-flex align-items-center gap-1 mb-1">
+                        <span>🎯</span> សូមជ្រើសរើសលេខតុរបស់អ្នក <span class="text-danger small">*</span>
+                    </label>
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text bg-white border-end-0 text-muted rounded-start-3"><i class="bi bi-grid-3x3-gap-fill text-success"></i></span>
+                        <select id="customerTable" class="form-select border-start-0 rounded-end-3 ps-1 shadow-none" style="cursor: pointer;">
+                            <option value="" selected disabled>-- ចុចទីនេះដើម្បីរើសលេខតុ --</option>
+                            <option value="Table 1">🪑 Table 01</option>
+                            <option value="Table 2">🪑 Table 02</option>
+                            <option value="Table 3">🪑 Table 03</option>
+                            <option value="Table 4">🪑 Table 04</option>
+                            <option value="Table 5">🪑 Table 05</option>
+                            <option value="Table 6">🪑 Table 06</option>
+                            <option value="Table 7">🪑 Table 07</option>
+                            <option value="Table 8">🪑 Table 08</option>
+                            <option value="Table 9">🪑 Table 09</option>
+                            <option value="Table 10">🪑 Table 10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top pt-3 mt-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fw-semibold fs-5 text-dark">Total:</span>
+                    <span class="fw-bold fs-4 text-success">$<span id="cartTotalValue">0.00</span></span>
+                </div>
+                <button id="checkoutBtn" class="btn btn-success btn-lg rounded-pill w-100 py-2 fw-medium shadow-sm mb-2">Proceed To Checkout</button>
+                <button class="btn btn-outline-danger btn-sm rounded-pill w-100 py-1" id="clearCartBtn">Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="recipe-footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="footer-logo-dot me-2"></div>
+                        <h4 class="fw-bold mb-0">Foodied</h4>
+                    </div>
+                    <p class="text-muted small mb-4">Get the latest healthy recipes and organic deals delivered to your inbox weekly.</p>
+                    <div class="newsletter-pill d-flex p-1 border rounded-pill bg-white">
+                        <input type="email" class="form-control border-0 shadow-none ps-3" placeholder="Your email...">
+                        <button class="btn btn-success rounded-pill px-4">Join</button>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h6 class="fw-bold mb-3">Shop Categories</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Fresh Fruits</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Organic Vegetables</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-3">Recipe Hub</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Breakfast Ideas</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Vegan Meals</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <div class="d-flex align-items-center gap-2 mb-2 text-muted small">
+                        <i class="bi bi-geo-alt text-success"></i>
+                        <span>123 Food Street, Phnom Penh</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-muted small">
+                        <i class="bi bi-telephone text-success"></i>
+                        <span>+855 12 345 678</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 opacity-10">
+            <div class="footer-bottom-links d-flex flex-wrap justify-content-center gap-4 mb-4 text-muted x-small">
+                <span>Features</span><span>News & Blogs</span><span>About Us</span><span>Terms</span><span>Privacy</span><span>Cookies</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

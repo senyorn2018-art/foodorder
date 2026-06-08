@@ -3,16 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foodie - Order Now</title>
+    <title>Foodied - About Us</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
      <!-- 💡 ភ្ជាប់បណ្ណាល័យ Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* 🎨 ស្ទីលបន្ថែមផ្តាច់មុខសម្រាប់ Custom Select Box តាមរូប edited-image.png */
+        .custom-foodied-select {
+            height: 48px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background-color: #ffffff;
+            color: #212529 !important;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .custom-foodied-select:focus {
+            border-color: #198754 !important;
+            box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.15) !important;
+            background-color: #ffffff;
+        }
+        .py-2-5 {
+            padding-top: 0.65rem !important;
+            padding-bottom: 0.65rem !important;
+        }
+        .ps-5 {
+            padding-left: 2.85rem !important;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- ⚡ Header Navigation Bar (Fixed & Responsive) -->
     <nav class="navbar navbar-expand-lg navbar-floating mt-4">
         <div class="container bg-white shadow-sm rounded-pill py-2 px-4">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -27,81 +52,85 @@
             </button>
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav gap-3">
+                <ul class="navbar-nav gap-2 gap-lg-3 my-2 my-lg-0">
                     <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-medium" href="ourproduct.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="ourproduct.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="contact.html">Contact Us</a></li>
                     <li class="nav-item"><a class="nav-link fw-medium" href="recipe.html">Recipes</a></li>
                     <li class="nav-item"><a class="nav-link fw-medium" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-medium" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-medium" href="about.html">About Us</a></li> <!-- 💡 Fix: Active តែលើ About Us ប៉ុណ្ណោះ -->
                 </ul>
+                <!-- ប៊ូតុង Cart លើ Mobile -->
+                <div class="d-lg-none mt-2">
+                    <button class="btn btn-outline-secondary rounded-pill w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                        <i class="bi bi-cart3 me-2"></i>Cart (<span class="cart-count">0</span>) - $<span class="cart-total-nav">0.00</span>
+                    </button>
+                </div>
             </div>
 
-            <div class="d-lg-none mt-2">
-                <button class="btn btn-outline-secondary rounded-pill w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
-                    <i class="bi bi-cart3 me-2"></i>Cart (<span class="cart-count">0</span>) - $<span class="cart-total-nav">0.00</span>
-                </button>
-            </div>
+            <!-- ប៊ូតុង Cart លើ Desktop -->
             <div class="d-none d-lg-flex align-items-center gap-2">
                 <button class="btn btn-outline-secondary rounded-pill px-4 py-1" type="button" id="currencyBtn" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
                     <i class="bi bi-cart3 me-2"></i>$<span class="cart-total-main">0.00</span>
                 </button>
-        </div>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero-section bg-light">
-        <div class="container">
+        <div class="container animate__animated animate__fadeIn">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <span class="badge rounded-pill bg-light text-dark mb-3 px-3 py-2 shadow-sm">Hungry?</span>
                     <h1 class="display-3 fw-bold">JUST COME TO <br><span class="text-success">FOODIED & ORDER</span></h1>
                     <p class="text-muted my-4">Here you will find all the best quality and pure food. Order now to satisfy your hunger pangs.</p>
                     <div class="d-flex gap-3">
-                        <button class="btn btn-success btn-lg rounded-pill px-4">Order Now</button>
+                        <button class="btn btn-success btn-lg rounded-pill px-4 shadow-sm">Order Now</button>
                         <button class="btn btn-outline-dark btn-lg rounded-pill px-4">Explore More &rarr;</button>
                     </div>
                 </div>
                 <div class="col-md-6 text-center position-relative mt-4 mt-md-0">
-                    <img src="image/matcha-dessert.jpg" alt="Hero Food" class="img-fluid rounded-circle border-green-main">
+                    <img src="image/matcha-dessert.jpg" alt="Hero Food" class="img-fluid rounded-circle border-green-main shadow">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Meaning of Vegan Section -->
     <section class="container py-5 my-4">
         <div class="row align-items-center g-5">
-            <div class="col-md-5 text-center">
+            <div class="col-md-5 text-center animate__animated animate__fadeInLeft">
                 <img src="image/salads.jpg" class="img-fluid rounded-4 shadow-lg w-100" style="max-height: 450px; object-fit: cover;" alt="Our Mission Team">
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 animate__animated animate__fadeInRight">
                 <h2 class="fw-bold mb-3">What is the Meaning <br> of Being a <span class="text-success">Vegan?</span></h2>
                 <p class="text-muted mb-4">We believe in a world where fresh, organic food is accessible to everyone. Our mission is to bridge the gap between local farms and your kitchen table.</p>
                 
                 <div class="row g-4">
                     <div class="col-6 d-flex align-items-start gap-3">
-                        <div class="bg-success text-white rounded p-2"><i class="bi bi-shield-check"></i></div>
+                        <div class="bg-success text-white rounded p-2 shadow-sm"><i class="bi bi-shield-check"></i></div>
                         <div>
                             <h6 class="fw-bold mb-1">Balanced Nutrition</h6>
                             <p class="x-small text-muted mb-0">Carefully curated meals for your health.</p>
                         </div>
                     </div>
                     <div class="col-6 d-flex align-items-start gap-3">
-                        <div class="bg-success text-white rounded p-2"><i class="bi bi-box-seam"></i></div>
+                        <div class="bg-success text-white rounded p-2 shadow-sm"><i class="bi bi-box-seam"></i></div>
                         <div>
                             <h6 class="fw-bold mb-1">Alternative Foods</h6>
                             <p class="x-small text-muted mb-0">Sustainable plant-based choices.</p>
                         </div>
                     </div>
                     <div class="col-6 d-flex align-items-start gap-3">
-                        <div class="bg-success text-white rounded p-2"><i class="bi bi-flower1"></i></div>
+                        <div class="bg-success text-white rounded p-2 shadow-sm"><i class="bi bi-flower1"></i></div>
                         <div>
                             <h6 class="fw-bold mb-1">Fresh Veggies</h6>
                             <p class="x-small text-muted mb-0">Picked daily from our local partners.</p>
                         </div>
                     </div>
                     <div class="col-6 d-flex align-items-start gap-3">
-                        <div class="bg-success text-white rounded p-2"><i class="bi bi-heart-pulse"></i></div>
+                        <div class="bg-success text-white rounded p-2 shadow-sm"><i class="bi bi-heart-pulse"></i></div>
                         <div>
                             <h6 class="fw-bold mb-1">Healthy Diet</h6>
                             <p class="x-small text-muted mb-0">Fueling your body with pure energy.</p>
@@ -112,6 +141,7 @@
         </div>
     </section>
 
+    <!-- Menu Categories Section -->
     <section class="bg-light py-5">
         <div class="container text-center">
             <h3 class="fw-bold mb-2">Menu Categories</h3>
@@ -119,27 +149,27 @@
             
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="category-card-v2 p-5 text-white rounded position-relative overflow-hidden shadow-sm" style="background: linear-gradient(180deg, #8bc34a 0%, #558b2f 100%);">
+                    <div class="category-card-v2 p-5 text-white rounded position-relative overflow-hidden shadow-sm" style="background: linear-gradient(180deg, #8bc34a 0%, #558b2f 100%); border-radius: 20px !important;">
                         <div class="cat-circle mb-3 mx-auto">
-                            <img src="image/chicken-burger.jpg" class="rounded-circle border border-white border-4" width="90" height="90" style="object-fit: cover;">
+                            <img src="image/chicken-burger.jpg" class="rounded-circle border border-white border-4 animate__animated animate__zoomIn" width="90" height="90" style="object-fit: cover;">
                         </div>
                         <h5 class="fw-bold">High Protein Bowls</h5>
                         <p class="small opacity-75 mb-0">High protein vegan bowls with locally sourced grains.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="category-card-v2 p-5 text-white rounded position-relative overflow-hidden shadow-sm" style="background: linear-gradient(180deg, #7cb342 0%, #33691e 100%);">
+                    <div class="category-card-v2 p-5 text-white rounded position-relative overflow-hidden shadow-sm" style="background: linear-gradient(180deg, #7cb342 0%, #33691e 100%); border-radius: 20px !important;">
                         <div class="cat-circle mb-3 mx-auto">
-                            <img src="image/matcha-dessert.jpg" class="rounded-circle border border-white border-4" width="90" height="90" style="object-fit: cover;">
+                            <img src="image/matcha-dessert.jpg" class="rounded-circle border border-white border-4 animate__animated animate__zoomIn" width="90" height="90" style="object-fit: cover;">
                         </div>
                         <h5 class="fw-bold">Organic Drinks</h5>
                         <p class="small opacity-75 mb-0">Detox juices and cold-pressed organic smoothies.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="category-card-v2 p-5 text-white rounded position-relative overflow-hidden shadow-sm" style="background: linear-gradient(180deg, #689f38 0%, #1b5e20 100%);">
+                    <div class="category-card-v2 p-5 text-white rounded position-relative overflow-hidden shadow-sm" style="background: linear-gradient(180deg, #689f38 0%, #1b5e20 100%); border-radius: 20px !important;">
                         <div class="cat-circle mb-3 mx-auto">
-                            <img src="image/chicken-pizza.jpg" class="rounded-circle border border-white border-4" width="90" height="90" style="object-fit: cover;">
+                            <img src="image/chicken-pizza.jpg" class="rounded-circle border border-white border-4 animate__animated animate__zoomIn" width="90" height="90" style="object-fit: cover;">
                         </div>
                         <h5 class="fw-bold">Farm Salads & Pizza</h5>
                         <p class="small opacity-75 mb-0">Farm-to-table salads with seasonal dressings.</p>
@@ -149,23 +179,24 @@
         </div>
     </section>
 
+    <!-- Organic Banner Section -->
     <section class="organic-banner py-5" style="background-color: #dcedc8;">
         <div class="container py-4">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-6 animate__animated animate__fadeInLeft">
                     <h2 class="display-5 fw-bold text-dark">100% Organic</h2>
-                    <h3 class="bg-success d-inline-block text-white px-3 py-1 rounded fs-5 fw-medium">Fresh & Healthy</h3>
+                    <h3 class="bg-success d-inline-block text-white px-3 py-1 rounded fs-5 fw-medium shadow-sm">Fresh & Healthy</h3>
                     <p class="mt-3 text-muted">Join thousands of people who have switched to a cleaner, greener lifestyle with Foodied.</p>
-                    <button class="btn btn-success rounded-pill px-5 mt-2">Learn More</button>
+                    <button class="btn btn-success rounded-pill px-5 mt-2 shadow-sm">Learn More</button>
                 </div>
-                <div class="col-md-6 d-none d-md-block text-center">
+                <div class="col-md-6 d-none d-md-block text-center animate__animated animate__fadeInRight">
                     <img src="image/veggie-sandwich.jpg" class="img-fluid rounded-4 shadow-sm opacity-90" style="max-height: 220px; object-fit: cover;" alt="Vegetable Medley">
                 </div>
             </div>
         </div>
     </section>
-    <!--card-->
-   <!-- 🛍️ Shopping Cart Offcanvas Sidebar -->
+
+    <!-- 🛍️ Shopping Cart Offcanvas Sidebar -->
     <div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
         <div class="offcanvas-header border-bottom">
             <h5 class="offcanvas-title fw-bold" id="cartSidebarLabel"><i class="bi bi-basket3-fill text-success me-2"></i>My Cart</h5>
@@ -176,27 +207,32 @@
                 <p class="text-muted text-center py-5 empty-cart-msg">Your cart is empty!</p>
             </div>
             
-            <!-- 🎯 ផ្នែកជ្រើសរើសលេខតុ (Table Number Option) -->
-            <div class="customer-info-form border-top pt-3 mt-2 text-start">
+            <!-- 🎯 ✨ Fix ជំនាន់ថ្មី៖ ផ្ទាំងជ្រើសរើសលេខតុ ម៉ូដ Premium Custom Design (រចនាតាមរូប edited-image.png) -->
+            <div class="table-selection-wrapper border-top pt-3 mt-2 text-start">
                 <div class="mb-3 position-relative">
-                    <label for="customerTable" class="form-label small fw-bold text-dark d-flex align-items-center gap-1 mb-1">
+                    <label for="customerTable" class="form-label small fw-bold text-dark d-flex align-items-center gap-1 mb-2">
                         <span>🎯</span> សូមជ្រើសរើសលេខតុរបស់អ្នក <span class="text-danger small">*</span>
                     </label>
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-text bg-white border-end-0 text-muted rounded-start-3"><i class="bi bi-grid-3x3-gap-fill text-success"></i></span>
-                        <select id="customerTable" class="form-select border-start-0 rounded-end-3 ps-1 shadow-none" style="cursor: pointer;">
-                            <option value="" selected disabled>-- ចុចទីនេះដើម្បីរើសលេខតុ --</option>
-                            <option value="Table 1">🪑 Table 01</option>
-                            <option value="Table 2">🪑 Table 02</option>
-                            <option value="Table 3">🪑 Table 03</option>
-                            <option value="Table 4">🪑 Table 04</option>
-                            <option value="Table 5">🪑 Table 05</option>
-                            <option value="Table 6">🪑 Table 06</option>
-                            <option value="Table 7">🪑 Table 07</option>
-                            <option value="Table 8">🪑 Table 08</option>
-                            <option value="Table 9">🪑 Table 09</option>
-                            <option value="Table 10">🪑 Table 10</option>
+                    <div class="custom-select-container position-relative">
+                        <select id="customerTable" class="form-select custom-foodied-select shadow-sm py-2-5 ps-5 rounded-3 fw-medium text-dark" style="cursor: pointer; -webkit-appearance: none; appearance: none;">
+                            <option value="" selected disabled>-- សូមចុចជ្រើសរើសលេខតុ (Table 01-10) --</option>
+                            <option value="Table 1">🪑 Table 01 (តុទី ០១)</option>
+                            <option value="Table 2">🪑 Table 02 (តុទី ០២)</option>
+                            <option value="Table 3">🪑 Table 03 (តុទី ០៣)</option>
+                            <option value="Table 4">🪑 Table 04 (តុទី ០៤)</option>
+                            <option value="Table 5">🪑 Table 05 (តុទី ០៥)</option>
+                            <option value="Table 6">🪑 Table 06 (តុទី ០៦)</option>
+                            <option value="Table 7">🪑 Table 07 (តុទី ០៧)</option>
+                            <option value="Table 8">🪑 Table 08 (តុទី ០៨)</option>
+                            <option value="Table 9">🪑 Table 09 (តុទី ០៩)</option>
+                            <option value="Table 10">🪑 Table 10 (តុទី ១០)</option>
                         </select>
+                        <span class="select-left-icon position-absolute top-50 translate-middle-y text-success fs-5 ps-3" style="pointer-events: none; left: 0;">
+                            <i class="bi bi-grid-3x3-gap-fill"></i>
+                        </span>
+                        <span class="select-right-arrow position-absolute top-50 translate-middle-y text-muted pe-3" style="pointer-events: none; right: 0;">
+                            <i class="bi bi-chevron-down fs-6 fw-bold"></i>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -211,6 +247,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer Section -->
     <footer class="footer-section pt-5 mt-5">
         <div class="container text-center py-5">
             <div class="d-flex justify-content-center align-items-center mb-4">
@@ -239,17 +277,17 @@
                 <a href="#" class="text-decoration-none text-muted small">Plans & Pricing</a>
                 <a href="#" class="text-decoration-none text-muted small">News & Blogs</a>
                 <a href="#" class="text-decoration-none text-muted small">Careers</a>
-                <a href="#" class="text-decoration-none text-muted small">About Us</a>
+                <a href="about.html" class="text-decoration-none text-muted small">About Us</a>
                 <a href="#" class="text-decoration-none text-muted small">Terms</a>
                 <a href="#" class="text-decoration-none text-muted small">Privacy</a>
                 <a href="#" class="text-decoration-none text-muted small">Cookies</a>
             </div>
         </div>
         
-        <div class="footer-bottom-bar"></div>
+        <div class="footer-bottom-bar bg-success" style="height: 10px; width: 100%;"></div>
     </footer>
 
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="cart.js?v=1.1"></script>
     <script src="script.js"></script>
